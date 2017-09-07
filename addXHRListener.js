@@ -2,6 +2,10 @@
  * @typedef XHRListener
  * @type {function}
  * @param {object} data - Object containing the request object, the property being accessed or method being called, and the value that would be returned
+ * @param {XMLHttpRequest} data.xhr - The request object
+ * @param {string} [data.property] - The property being accessed (get/set)
+ * @param {string} [data.method] - the method being called (call)
+ * @param {*} data.value - The value being returned or set (get/set/call)
  * @returns {undefined}
  */
 /**
