@@ -33,7 +33,7 @@ const addXHRListener = (_ => {
 
     const listeners = [];
 
-    unsafeWindow.XMLHttpRequest = new Proxy(XHR, {
+    window.XMLHttpRequest = new Proxy(XHR, {
         construct: (target, args) => {
             const callall = (type, data) => (listeners.forEach(e => type in e && e.regex.test(xhr.responseURL) && e[type](data)), data);
 
