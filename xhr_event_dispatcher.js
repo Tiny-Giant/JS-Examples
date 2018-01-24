@@ -26,6 +26,9 @@
  
 (_ => {
     const XHR = XMLHttpRequest;
+    
+    console.log(XHR instanceof Proxy);
+    if(XHR instanceof Proxy) return false;
 
     const dispatchXHREvent = ({ type, data }) => document.dispatchEvent(new MessageEvent(type, { data }));
 
