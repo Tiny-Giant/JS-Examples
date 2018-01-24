@@ -1,5 +1,12 @@
-/**
- * Dispatches three different types of events on the document:
+/** This file may be included in userscripts automatically using the following directives:
+ *  @grant    unsafeWindow
+ *  @require  https://raw.githubusercontent.com/Tiny-Giant/JS-Examples/master/xhr_event_dispatcher.js
+ *  @run-at   document-start
+ *  Note: The run-at directive is required if you want to listen to page scripts.
+ *        This also requires that you put the rest of the userscript in a DOMContentLoaded event listener
+ **/
+
+/** Dispatches three different types of events on the document:
  *  - xhr_call:
  *     trigger: any call to any method on any xhr object
  *     data: { xhr, method, args, result }
@@ -9,6 +16,12 @@
  *  - xhr_set:
  *     trigger: any set on any property on any xhr object
  *     data: { xhr, property, value }
+ **/
+
+/** Use the following lines to log all events:
+ *    document.addEventListener('xhr_call', ({ data }) => console.log(data), false);
+ *    document.addEventListener('xhr_get',  ({ data }) => console.log(data), false);
+ *    document.addEventListener('xhr_set',  ({ data }) => console.log(data), false);
  **/
  
 (_ => {
