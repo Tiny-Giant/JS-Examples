@@ -25,10 +25,12 @@
  **/
  
 (_ => {
-    const XHR = XMLHttpRequest;
-    
-    console.log(XHR instanceof Proxy);
-    if(XHR instanceof Proxy) return false;
+    const win = (unsafeWindow || window);
+    const XHR = win.XMLHttpRequest;
+ 
+    console.log(win.XHRCaptured);
+    if(win.XHRCaptured) return false;
+    win.XHRCaptured = true;   
 
     const dispatchXHREvent = ({ type, data }) => document.dispatchEvent(new MessageEvent(type, { data }));
 
