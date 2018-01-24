@@ -28,7 +28,6 @@
     const win = (unsafeWindow || window);
     const XHR = win.XMLHttpRequest;
  
-    console.log(win.XHRCaptured);
     if(win.XHRCaptured) return false;
     win.XHRCaptured = true;   
 
