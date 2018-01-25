@@ -25,7 +25,7 @@
  **/
  
 (_ => {
-    const win = (unsafeWindow || window);
+    const win = 'unsafeWindow' in window ? window.unsafeWindow : window;
     const XHR = win.XMLHttpRequest;
  
     if(win.XHRCaptured) return false;
