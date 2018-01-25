@@ -38,7 +38,7 @@
     const dispatchOpenEvent = ({ type, data }) => document.dispatchEvent(new MessageEvent(type, { data }));
 
     win.open = (...args) => {
-        const win_result = _open(...args);
+        const win_result = open(...args);
         dispatchOpenEvent({ type: 'open_start', data: { window: win_result, args }  });
         return new Proxy(win_result, {
             get: (t, property) => {
